@@ -4,9 +4,161 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ทดสอบ</title>
+    <title>เข้าสู่ระบบ</title>
+    <style>
+        body {
+            background-color: rgb(238, 238, 238);
+        }
+        .login {
+            margin: 120px auto;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            width: 30%;
+            height: 200px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0.5px 0.5px 5px 1px rgb(221, 221, 221) ;
+        }
+        .login input {
+            height: 30px;
+            width: 90%;
+            padding: 10px 20px;
+            margin: 10px auto;
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(223, 223, 223);
+        }
+        .login button {
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(73, 70, 233);
+            color: white;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+        }
+        .login button:hover {
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(64, 61, 199);
+            color: white;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>ทดสอบ</h1>
+    <form id="checkLogin" class="login">
+        <h1>กรอกรหัสผ่าน</h1>
+        <input type="text" id="pass" placeholder="รหัสผ่าน" required><br>
+        <button type="submit">ยืนยัน</button>
+    </form>
 </body>
 </html>
+
+<script>
+    var checkLogin = document.getElementById('checkLogin')
+
+    checkLogin.addEventListener('submit', function(event){
+        event.preventDefault()
+        var getPass = document.getElementById('pass').value
+        var hashPass = sha256(getPass)
+
+        function sha256(ascii) {
+            function rightRotate(value, amount) {
+                return (value>>>amount) | (value<<(32 - amount));
+            };
+
+            var mathPow = Math.pow;
+            var maxWord = mathPow(2, 32);
+            var lengthProperty = 'length'
+            var i, j; 
+            var result = ''
+            var words = [];
+            var asciiBitLength = ascii[lengthProperty]*8;          
+            var hash = sha256.h = sha256.h || [];      
+            var k = sha256.k = sha256.k || [];
+            var primeCounter = k[lengthProperty];
+            var isComposite = {};
+            for (var candidate = 2; primeCounter < 64; candidate++) {
+                if (!isComposite[candidate]) {
+                    for (i = 0; i < 313; i += candidate) {
+                        isComposite[i] = candidate;
+                    }
+                    hash[primeCounter] = (mathPow(candidate, .5)*maxWord)|0;
+                    k[primeCounter++] = (mathPow(candidate, 1/3)*maxWord)|0;
+                }
+            }
+            
+            ascii += '\x80' 
+            while (ascii[lengthProperty]%64 - 56) ascii += '\x00' 
+            for (i = 0; i < ascii[lengthProperty]; i++) {
+                j = ascii.charCodeAt(i);
+                if (j>>8) return; 
+                words[i>>2] |= j << ((3 - i)%4)*8;
+            }
+            words[words[lengthProperty]] = ((asciiBitLength/maxWord)|0);
+            words[words[lengthProperty]] = (asciiBitLength)
+            
+            for (j = 0; j < words[lengthProperty];) {
+                var w = words.slice(j, j += 16); 
+                var oldHash = hash;
+
+                hash = hash.slice(0, 8);
+                
+                for (i = 0; i < 64; i++) {
+                    var i2 = i + j;
+                    var w15 = w[i - 15], w2 = w[i - 2];
+                    var a = hash[0], e = hash[4];
+                    var temp1 = hash[7]
+                        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) 
+                        + ((e&hash[5])^((~e)&hash[6])) 
+                        + k[i]
+                        + (w[i] = (i < 16) ? w[i] : (
+                                w[i - 16]
+                                + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15>>>3)) 
+                                + w[i - 7]
+                                + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2>>>10)) 
+                            )|0
+                        );
+                
+                    var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
+                        + ((a&hash[1])^(a&hash[2])^(hash[1]&hash[2])); 
+                    
+                    hash = [(temp1 + temp2)|0].concat(hash); 
+                    hash[4] = (hash[4] + temp1)|0;
+                }
+                
+                for (i = 0; i < 8; i++) {
+                    hash[i] = (hash[i] + oldHash[i])|0;
+                }
+            }
+            
+            for (i = 0; i < 8; i++) {
+                for (j = 3; j + 1; j--) {
+                    var b = (hash[i]>>(j*8))&255;
+                    result += ((b < 16) ? 0 : '') + b.toString(16);
+                }
+            }
+            return result;
+        };
+
+        if(hashPass === "f7d1f0eebc02ef5616c6376999402a6898cd0e1a7f37e5ab3005a6e5e777dd16") {
+            localStorage.setItem('pass', getPass)
+            window.location = "success.html"
+        } else {
+            alert("รหัสผ่านไม่ถูกต้อง")
+            window.location = "index.html"
+        }
+        
+    }) 
+    
+
+</script>
