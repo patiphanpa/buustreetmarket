@@ -12,11 +12,12 @@
             margin: 150px auto;
             font-size: 100px;
             color: #fda1b0;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <h1 class="word">คนอ่านน่ารัก❤</h1>
+    <h1 class="word" id="word">คนอ่านน่ารัก❤</h1>
 </body>
 </html>
 
@@ -26,6 +27,12 @@
         var pass = localStorage.getItem("pass")
         if(!pass) {
             window.location = "index.html"
-        } 
+        } else {
+            if(pass != "f7d1f0eebc02ef5616c6376999402a6898cd0e1a7f37e5ab3005a6e5e777dd16") {
+                window.location = "index.html"
+            } else {
+                document.getElementById("word").style.display = "block";
+            }
+        }
     }
 </script>

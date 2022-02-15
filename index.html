@@ -9,12 +9,13 @@
     <style>
         body {
             background-color: rgb(238, 238, 238);
+            padding: 0px 5%;
         }
         .login {
             margin: 120px auto;
             background-color: rgb(255, 255, 255);
             text-align: center;
-            width: 30%;
+            width: 90%;
             height: 200px;
             padding: 30px;
             border-radius: 10px;
@@ -32,7 +33,7 @@
         }
         .login button {
             height: 50px;
-            width: 100%;
+            width: 95%;
             padding: 10px;
             background-color: rgb(73, 70, 233);
             color: white;
@@ -44,7 +45,7 @@
         }
         .login button:hover {
             height: 50px;
-            width: 100%;
+            width: 95%;
             padding: 10px;
             background-color: rgb(64, 61, 199);
             color: white;
@@ -153,7 +154,7 @@
         };
 
         if(hashPass === "f7d1f0eebc02ef5616c6376999402a6898cd0e1a7f37e5ab3005a6e5e777dd16") {
-            localStorage.setItem('pass', getPass)
+            localStorage.setItem('pass', hashPass)
             window.location = "success.html"
         } else {
             alert("รหัสผ่านไม่ถูกต้อง")
