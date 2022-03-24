@@ -4,161 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="https://securitystbk.com/wp-content/uploads/2018/11/Padlock-PNG-Transparent-Image.png">
-    <title>เข้าสู่ระบบ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+    <title>หน้าหลัก</title>
     <style>
         body {
-            background-color: rgb(238, 238, 238);
-            padding: 0px 5%;
+            font-family: Mitr;
         }
-        .login {
-            margin: 120px auto;
-            background-color: rgb(255, 255, 255);
-            text-align: center;
-            width: 80%;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0.5px 0.5px 5px 1px rgb(221, 221, 221) ;
-        }
-        .login input {
-            height: 30px;
-            width: 90%;
-            padding: 1% 2.5%;
-            margin: 10px auto;
-            font-size: 20px;
-            border-radius: 5px;
-            border: none;
-            background-color: rgb(223, 223, 223);
-        }
-        .login button {
-            height: 50px;
-            width: 95%;
-            background-color: rgb(73, 70, 233);
-            color: white;
-            border-radius: 5px;
-            font-size: 20px;
-            cursor: pointer;
-            border: none;
-            margin: auto;
-        }
-        .login button:hover {
-            height: 50px;
-            width: 95%;
-            background-color: rgb(64, 61, 199);
-            color: white;
-            border-radius: 5px;
-            font-size: 20px;
-            cursor: pointer;
-            border: none;
-        }
-
+        
     </style>
 </head>
-<body>
-    <form id="checkLogin" class="login">
-        <h1>กรอกรหัสผ่าน</h1>
-        <input type="password" id="pass" placeholder="รหัสผ่าน" required><br>
-        <button type="submit">ยืนยัน</button>
-    </form>
+<body class="bg-light">
+    <nav class="container-fluid navbar navbar-expand-md navbar-light bg-white mb-4 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">BUU STREET MARKET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="map.html" style="font-size: 18px; color: black;">แผนผังตลาด</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="shows.html" style="font-size: 18px; color: black;">ตารางการแสดง</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-white px-5">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="map.html" style="font-size: 18px; color: black;">แผนผังตลาด</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shows.html" style="font-size: 18px; color: black;">ตารางการแสดง</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container my-5">
+        <div class="row">
+            
+            <div class="col-12">
+                <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://github.com/patiphanpa/buustreetmarket/blob/main/img/five-new-old2.jpg" class="d-block w-100" alt="Responsive image">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://github.com/patiphanpa/buustreetmarket/blob/main/img/adam-levine.jpg" class="d-block w-100" alt="Responsive image">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://github.com/patiphanpa/buustreetmarket/blob/main/img/slot-machine2.jpg" class="d-block w-100" alt="Responsive image">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="list"></div>
+        
+    </div> 
+    
 </body>
 </html>
 
 <script>
-    var checkLogin = document.getElementById('checkLogin')
-
-    checkLogin.addEventListener('submit', function(event){
-        event.preventDefault()
-        var getPass = document.getElementById('pass').value
-        var hashPass = sha256(getPass)
-
-        function sha256(ascii) {
-            function rightRotate(value, amount) {
-                return (value>>>amount) | (value<<(32 - amount));
-            };
-
-            var mathPow = Math.pow;
-            var maxWord = mathPow(2, 32);
-            var lengthProperty = 'length'
-            var i, j; 
-            var result = ''
-            var words = [];
-            var asciiBitLength = ascii[lengthProperty]*8;          
-            var hash = sha256.h = sha256.h || [];      
-            var k = sha256.k = sha256.k || [];
-            var primeCounter = k[lengthProperty];
-            var isComposite = {};
-            for (var candidate = 2; primeCounter < 64; candidate++) {
-                if (!isComposite[candidate]) {
-                    for (i = 0; i < 313; i += candidate) {
-                        isComposite[i] = candidate;
-                    }
-                    hash[primeCounter] = (mathPow(candidate, .5)*maxWord)|0;
-                    k[primeCounter++] = (mathPow(candidate, 1/3)*maxWord)|0;
-                }
-            }
-            
-            ascii += '\x80' 
-            while (ascii[lengthProperty]%64 - 56) ascii += '\x00' 
-            for (i = 0; i < ascii[lengthProperty]; i++) {
-                j = ascii.charCodeAt(i);
-                if (j>>8) return; 
-                words[i>>2] |= j << ((3 - i)%4)*8;
-            }
-            words[words[lengthProperty]] = ((asciiBitLength/maxWord)|0);
-            words[words[lengthProperty]] = (asciiBitLength)
-            
-            for (j = 0; j < words[lengthProperty];) {
-                var w = words.slice(j, j += 16); 
-                var oldHash = hash;
-
-                hash = hash.slice(0, 8);
-                
-                for (i = 0; i < 64; i++) {
-                    var i2 = i + j;
-                    var w15 = w[i - 15], w2 = w[i - 2];
-                    var a = hash[0], e = hash[4];
-                    var temp1 = hash[7]
-                        + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) 
-                        + ((e&hash[5])^((~e)&hash[6])) 
-                        + k[i]
-                        + (w[i] = (i < 16) ? w[i] : (
-                                w[i - 16]
-                                + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15>>>3)) 
-                                + w[i - 7]
-                                + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2>>>10)) 
-                            )|0
-                        );
-                
-                    var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22))
-                        + ((a&hash[1])^(a&hash[2])^(hash[1]&hash[2])); 
-                    
-                    hash = [(temp1 + temp2)|0].concat(hash); 
-                    hash[4] = (hash[4] + temp1)|0;
-                }
-                
-                for (i = 0; i < 8; i++) {
-                    hash[i] = (hash[i] + oldHash[i])|0;
-                }
-            }
-            
-            for (i = 0; i < 8; i++) {
-                for (j = 3; j + 1; j--) {
-                    var b = (hash[i]>>(j*8))&255;
-                    result += ((b < 16) ? 0 : '') + b.toString(16);
-                }
-            }
-            return result;
-        };
-
-        if(hashPass === "f7d1f0eebc02ef5616c6376999402a6898cd0e1a7f37e5ab3005a6e5e777dd16") {
-            localStorage.setItem('pass', hashPass)
-            window.location = "success.html"
-        } else {
-            alert("รหัสผ่านไม่ถูกต้อง")
-            window.location = "index.html"
-        }
-        
-    }) 
-    
-
+    zone = ["โซนเครื่องเล่น", "โซนอาหาร", "จุดแสดงงานศิลปะ", "โซนขายของทั่วไป", "โซนขายเสื้อผ้า"];
+    detail = ["คำอธิบาย", 
+            "คำอธิบาย",
+            "คำอธิบาย",
+            "คำอธิบาย",
+            "คำอธิบาย"];
+    img = ["https://github.com/patiphanpa/buustreetmarket/blob/main/img/ex1.jpeg", 
+            "https://github.com/patiphanpa/buustreetmarket/blob/main/img/ex2.jpeg",
+            "file:///C:/Users/Administrator/Desktop/buustreetmarket/img/ex3.jpeg",
+            "https://github.com/patiphanpa/buustreetmarket/blob/main/img/ex4.jpeg",
+            "https://github.com/patiphanpa/buustreetmarket/blob/main/img/ex5.jpg"];
+    text = "";
+    for (let i = 0; i < 5; i++) {
+        text += "<div class='row my-5'>";
+        text += "<div class='col-lg-5 col-md-5 col-sm-12'><img src='" + img[i]  + "' class='d-block w-100' alt='Responsive image'></div>";
+        text += "<div class='col-lg-7 col-md-7 col-sm-12 my-2'><h3>" + zone[i] + "</h3>";
+        text += "<p>" + detail[i] +"<p/></div></div>";
+    }
+    document.getElementById("list").innerHTML = text;
 </script>
