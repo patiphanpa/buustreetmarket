@@ -12,6 +12,9 @@
         body {
             font-family: Mitr;
         }
+        p {
+            font-size: 20px;
+        }
         
     </style>
 </head>
@@ -89,11 +92,11 @@
 
 <script>
     zone = ["โซนเครื่องเล่น", "โซนอาหาร", "จุดแสดงงานศิลปะ", "โซนขายของทั่วไป", "โซนขายเสื้อผ้า"];
-    detail = ["คำอธิบาย", 
-            "คำอธิบาย",
-            "คำอธิบาย",
-            "คำอธิบาย",
-            "คำอธิบาย"];
+    detail = ["มีกิจกรรมการละเล่นต่าง ๆ มากมาย เช่น ปาโป่ง ยิงปืน ปากระป๋อง ม้าหมุน ชิงช้าสวรรค์ เป็นต้น", 
+            "มีทั้งอาหารและเครื่องดื่มให้เลือกรับประทานมากมาย ไม่ว่าจะเป็นอาหารประจำถิ่น อาหารที่กำลังเป็นที่นิยม อาหารที่แปลกใหม่ เป็นต้น",
+            "มีการแสดงผลงานศิลปะของนิสิตคณะต่าง ๆ ในทุกชั้นปี เช่น ภาพวาดสีไม้ ภาพวาดสีน้ำ ภาพวาดสีน้ำมัน รูปปั้นปูนปลาสเตอร์ งานแกะสลัก เป็นต้น",
+            "มีสินค้าจิปะถะต่าง ๆ ให้เลือกหลากหลาย เช่น โคมไฟ แก้วน้ำ และอุปกรณ์ต่าง ๆ เป็นต้น",
+            "ประกอบไปด้วยเสื้อยืด เสื้อเชิ้ต กางเกงขาสั้น กางเกงขายาว รองเท้าผ้าใบ และเสื้อผ้าแฮนด์เมดต่าง ๆ อีกมากมาย"];
     img = ["https://raw.githubusercontent.com/patiphanpa/buustreetmarket/main/img/ex1.jpeg", 
             "https://raw.githubusercontent.com/patiphanpa/buustreetmarket/main/img/ex2.jpeg",
             "https://raw.githubusercontent.com/patiphanpa/buustreetmarket/main/img/ex3.jpeg",
@@ -103,7 +106,7 @@
     for (let i = 0; i < 5; i++) {
         text += "<div class='row my-5'>";
         text += "<div class='col-lg-5 col-md-5 col-sm-12'><img src='" + img[i]  + "' class='d-block w-100' alt='Responsive image'></div>";
-        text += "<div class='col-lg-7 col-md-7 col-sm-12 my-2'><h3>" + zone[i] + "</h3>";
+        text += "<div class='col-lg-7 col-md-7 col-sm-12 my-1'><h1>" + zone[i] + "</h1>";
         text += "<p>" + detail[i] +"<p/></div></div>";
     }
     document.getElementById("list").innerHTML = text;
